@@ -3,13 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Contacts from "./scenes/employees";
+import Employees from "./scenes/employees";
 import Bar from "./scenes/bar";
 import Form from "./scenes/form";
 import Pie from "./scenes/pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
+import Projects from "./scenes/projects";
+import LeaveRequests from "./scenes/leave";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -25,8 +27,10 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/employees" element={<Employees />} />
               <Route path="/form" element={<Form />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/leave" element={<LeaveRequests />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/pie" element={<Pie />} />
               <Route path="/calendar" element={<Calendar />} />

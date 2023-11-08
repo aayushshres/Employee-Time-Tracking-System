@@ -8,9 +8,9 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -129,8 +129,30 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Manage Employees"
-              to="/contacts"
+              to="/employees"
               icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Action
+            </Typography>
+            <Item
+              title="Add New Employee"
+              to="/form"
+              icon={<PersonOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Leave Requests"
+              to="/leave"
+              icon={<PendingActionsIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -143,9 +165,9 @@ const Sidebar = () => {
               Pages
             </Typography>
             <Item
-              title="Add New Employee"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
+              title="Projects"
+              to="/projects"
+              icon={<StackedBarChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -153,27 +175,6 @@ const Sidebar = () => {
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Charts
-            </Typography>
-            <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

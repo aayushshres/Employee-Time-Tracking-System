@@ -7,6 +7,8 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
 import Header from "../../components/Header";
 import StatBox from "../../components/StatBox";
+import LeaveRequestsDashboard from "../leave/indexDashboard";
+import ProjectsDashboard from "../projects/indexDashboard";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -156,21 +158,42 @@ const Dashboard = () => {
               </IconButton>
             </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0"></Box>
+          <Box height="250px" m="-20px 0 0 0">
+            <ProjectsDashboard />
+          </Box>
         </Box>
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
         >
-          <Typography
-            variant="h3"
-            fontWeight="bold"
-            color={colors.greenAccent[500]}
+          <Box
+            mt="25px"
+            p="0 30px"
+            display="flex "
+            justifyContent="space-between"
+            alignItems="center"
           >
-            Leave Requests
-          </Typography>
+            <Box>
+              <Typography
+                variant="h5"
+                fontWeight="600"
+                color={colors.grey[100]}
+              >
+                03
+              </Typography>
+              <Typography
+                variant="h3"
+                fontWeight="bold"
+                color={colors.greenAccent[500]}
+              >
+                Leave Requests
+              </Typography>
+            </Box>
+          </Box>
+          <Box height="250px" m="-20px 0 0 0">
+            <LeaveRequestsDashboard />
+          </Box>
         </Box>
       </Box>
     </Box>

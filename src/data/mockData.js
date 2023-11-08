@@ -197,6 +197,75 @@ export const mockDataContacts = [
   },
 ];
 
+export const mockDataProjects = [
+  {
+    id: 1,
+    name: "Kotlin Android App",
+    due: "08/10/2023"
+  },
+  {
+    id: 2,
+    name: "Swift iOS App",
+    due: "18/10/2023"
+  },
+  {
+    id: 3,
+    name: "Django Backend",
+    due: "28/10/2023"
+  },
+  {
+    id: 4,
+    name: "Machine Learning",
+    due: "08/11/2023"
+  },
+  {
+    id: 5,
+    name: "Artificial Intelligence",
+    due: "18/11/2023"
+  },
+  {
+    id: 6,
+    name: "Frontend Web Development",
+    due: "28/11/2023"
+  },
+  {
+    id: 7,
+    name: "Backend Web Development",
+    due: "08/12/2023"
+  },
+  {
+    id: 8,
+    name: "Rust Project",
+    due: "18/12/2023"
+  },
+  {
+    id: 9,
+    name: "Apache Server",
+    due: "28/12/2023"
+  },
+];
+
+export const mockDataLeaveRequests = [
+  {
+    id: 1,
+    name: "Jon Snow",
+    type: "Sick Leave",
+    status: "Approved",
+  },
+  {
+    id: 2,
+    name: "Cersei Lannister",
+    type: "Personal Leave",
+    status: "Pending",
+  },
+  {
+    id: 3,
+    name: "Jaime Lannister",
+    type: "Emergency Leave",
+    status: "Pending",
+  },
+];
+
 export const mockDataInvoices = [
   {
     id: 1,
