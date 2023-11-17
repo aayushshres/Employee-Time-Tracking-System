@@ -5,7 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Employees from "./scenes/employees";
 import Bar from "./scenes/bar";
-import Form from "./scenes/form";
+import CreateEmployee from "./scenes/form";
 import Pie from "./scenes/pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
@@ -28,7 +28,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/employees" element={<Employees />} />
-              <Route path="/form" element={<Form />} />
+              <Route path="/form" element={<CreateEmployee />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/leave" element={<LeaveRequests />} />
               <Route path="/bar" element={<Bar />} />
