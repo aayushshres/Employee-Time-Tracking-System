@@ -1,13 +1,43 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import Axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Employees = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const [arr, setArr] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:4000/employees")
+      .then((res) => {
+        console.log(res.data);
+        setArr(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+    
+
+  const handleDeleteClick = (id) => {
+    Axios.delete("http://localhost:4000/employees/delete-employee/" + id)
+    .then((res) => {
+      if (res.status === 200) {
+        alert("Record deleted successfully");
+        window.location.reload();
+      } else Promise.reject();
+    })
+    .catch((err) => alert(err));
+};
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -48,7 +78,27 @@ const Employees = () => {
     {
       field: "zipCode",
       headerName: "Zip Code",
-      flex: 1,
+      flex: 0.5,
+    },
+    {
+      field: "Edit Employee",
+      headerName: "Edit Employee",
+      sortable: false,
+      renderCell: ({ id }) => (
+        <Button variant="contained" color="success">
+          Edit
+        </Button>
+      ),
+    },
+    {
+      field: "Delete Employee",
+      headerName: "Delete Employee",
+      sortable: false,
+      renderCell: ({ id }) => (
+        <Button onClick={() => handleDeleteClick(id)} variant="contained" color="error">
+          Delete
+        </Button>
+      ),
     },
   ];
 
@@ -88,9 +138,10 @@ const Employees = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={arr}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
+          getRowId={(row) => row._id}
         />
       </Box>
     </Box>
