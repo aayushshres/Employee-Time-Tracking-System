@@ -26,7 +26,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/admin" element={<Dashboard />} />
+              <Route path="/admin/dashboard" element={<Dashboard />} />
               <Route path="/admin/employees" element={<Employees />} />
               <Route path="/admin/form" element={<Form />} />
               <Route path="/admin/projects" element={<Projects />} />
