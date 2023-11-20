@@ -9,6 +9,7 @@ import { useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 
+//backend integration
 const Employees = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -26,18 +27,16 @@ const Employees = () => {
       });
   }, []);
 
-    
-
   const handleDeleteClick = (id) => {
     Axios.delete("http://localhost:4000/employees/delete-employee/" + id)
-    .then((res) => {
-      if (res.status === 200) {
-        alert("Record deleted successfully");
-        window.location.reload();
-      } else Promise.reject();
-    })
-    .catch((err) => alert(err));
-};
+      .then((res) => {
+        if (res.status === 200) {
+          alert("Record deleted successfully");
+          window.location.reload();
+        } else Promise.reject();
+      })
+      .catch((err) => alert(err));
+  };
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -95,7 +94,11 @@ const Employees = () => {
       headerName: "Delete Employee",
       sortable: false,
       renderCell: ({ id }) => (
-        <Button onClick={() => handleDeleteClick(id)} variant="contained" color="error">
+        <Button
+          onClick={() => handleDeleteClick(id)}
+          variant="contained"
+          color="error"
+        >
           Delete
         </Button>
       ),
