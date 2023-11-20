@@ -1,12 +1,12 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from "../../theme";
+import { tokens } from "../../../theme";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
-import Header from "../../components/Header";
-import StatBox from "../../components/StatBox";
+import Header from "../../../components/Header";
+import StatBox from "../../../components/StatBox";
 import LeaveRequestsDashboard from "../leave/indexDashboard";
 import ProjectsDashboard from "../projects/indexDashboard";
 

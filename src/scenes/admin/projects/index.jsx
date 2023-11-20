@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataLeaveRequests } from "../../data/mockData";
-import Header from "../../components/Header";
+import { tokens } from "../../../theme";
+import { mockDataProjects } from "../../../data/mockData";
+import Header from "../../../components/Header";
 import { useTheme } from "@mui/material";
 
-const LeaveRequests = () => {
+const Projects = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -18,20 +18,15 @@ const LeaveRequests = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "type",
-      headerName: "Leave Type",
-      flex: 1,
-    },
-    {
-      field: "status",
-      headerName: "Status",
+      field: "due",
+      headerName: "Due Date",
       flex: 1,
     },
   ];
 
   return (
     <Box m="20px">
-      <Header title="LEAVE REQUESTS" />
+      <Header title="ONGOING PROJECTS" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -65,7 +60,7 @@ const LeaveRequests = () => {
         }}
       >
         <DataGrid
-          rows={mockDataLeaveRequests}
+          rows={mockDataProjects}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
@@ -74,4 +69,4 @@ const LeaveRequests = () => {
   );
 };
 
-export default LeaveRequests;
+export default Projects;

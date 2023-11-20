@@ -1,16 +1,17 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataProjects } from "../../data/mockData";
-import Header from "../../components/Header";
+import { tokens } from "../../../theme";
+import { mockDataContacts } from "../../../data/mockData";
+import Header from "../../../components/Header";
 import { useTheme } from "@mui/material";
 
-const Projects = () => {
+const Employees = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
+    { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
       headerName: "Name",
@@ -18,15 +19,42 @@ const Projects = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "due",
-      headerName: "Due Date",
+      field: "age",
+      headerName: "Age",
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+    },
+    {
+      field: "phone",
+      headerName: "Phone Number",
+      flex: 1,
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      flex: 1,
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      flex: 1,
+    },
+    {
+      field: "city",
+      headerName: "City",
+      flex: 1,
+    },
+    {
+      field: "zipCode",
+      headerName: "Zip Code",
       flex: 1,
     },
   ];
 
   return (
     <Box m="20px">
-      <Header title="ONGOING PROJECTS" />
+      <Header title="EMPLOYEE DETAILS" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -60,7 +88,7 @@ const Projects = () => {
         }}
       >
         <DataGrid
-          rows={mockDataProjects}
+          rows={mockDataContacts}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
@@ -69,4 +97,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Employees;
