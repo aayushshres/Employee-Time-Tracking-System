@@ -3,7 +3,7 @@ import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
-import { tokens } from "../../theme";
+import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -129,7 +129,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Manage Employees"
-              to="/employees"
+              to="/admin/employees"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -144,14 +144,14 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Add New Employee"
-              to="/form"
+              to="/admin/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Leave Requests"
-              to="/leave"
+              to="/admin/leave"
               icon={<PendingActionsIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -166,14 +166,14 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Projects"
-              to="/projects"
+              to="/admin/projects"
               icon={<StackedBarChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Calendar"
-              to="/calendar"
+              to="/admin/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

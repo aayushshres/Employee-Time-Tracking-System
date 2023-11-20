@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataLeaveRequests } from "../../data/mockData";
+import { tokens } from "../../../theme";
+import { mockDataLeaveRequests } from "../../../data/mockData";
 import { useTheme } from "@mui/material";
 
 const LeaveRequestsDashboard = () => {
