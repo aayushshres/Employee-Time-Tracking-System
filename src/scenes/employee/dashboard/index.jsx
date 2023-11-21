@@ -7,6 +7,8 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
 import Header from "../../../components/Header";
 import StatBox from "../../../components/StatBox";
+import PieChart from "../../../components/PieChart";
+import WorkLog from "../worklog";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -150,7 +152,7 @@ const Dashboard = () => {
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
-            {/* Add Work Log Here */}
+            <WorkLog />
           </Box>
         </Box>
         <Box
@@ -175,8 +177,8 @@ const Dashboard = () => {
               </Typography>
             </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
-            {/* Add Pie Chart Here */}
+          <Box height="280px" m="-20px -30px 0 0">
+            <PieChart />
           </Box>
         </Box>
       </Box>

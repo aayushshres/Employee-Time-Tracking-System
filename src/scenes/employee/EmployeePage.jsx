@@ -3,15 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./global/Topbar";
 import Sidebar from "./global/Sidebar";
 import Dashboard from "./dashboard";
-// import Employees from "./employees";
-// import Bar from "./bar";
-// import Form from "./form";
-// import Pie from "./pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../../theme";
-// import Calendar from "./calendar/calendar";
-// import Projects from "./projects";
-// import LeaveRequests from "./leave";
+import Calendar from "./calendar/calendar";
+import Projects from "./projects";
+import EmployeeLeaveRequests from "./leave_requests";
 
 function EmployeePage() {
   const [theme, colorMode] = useMode();
@@ -28,6 +24,9 @@ function EmployeePage() {
             <Routes>
               <Route path="" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/leave" element={<EmployeeLeaveRequests />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/calendar" element={<Calendar />} />
             </Routes>
           </main>
         </div>

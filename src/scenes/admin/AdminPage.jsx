@@ -6,7 +6,6 @@ import Dashboard from "./dashboard";
 import Employees from "./employees";
 import Bar from "./bar";
 import Form from "./form";
-import Pie from "./pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../../theme";
 import Calendar from "./calendar/calendar";
@@ -32,7 +31,6 @@ function AdminPage() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/leave" element={<LeaveRequests />} />
               <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
               <Route path="/calendar" element={<Calendar />} />
             </Routes>
           </main>

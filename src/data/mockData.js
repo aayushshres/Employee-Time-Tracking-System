@@ -245,6 +245,39 @@ export const mockDataProjects = [
   },
 ];
 
+export const mockDataWorkLog = [
+  {
+    id: 1,
+    title: "Home Page",
+    desc: "Bottom navigation bar and side bar completed.",
+    date: "28/12/2023"
+  },
+  {
+    id: 2,
+    title: "User Profile Page",
+    desc: "User details view and profile edit feature completed.",
+    date: "18/12/2023"
+  },
+  {
+    id: 3,
+    title: "Settings Page",
+    desc: "Settings feature completed.",
+    date: "08/12/2023"
+  },
+  {
+    id: 4,
+    title: "Dark Mode",
+    desc: "Dark mode feature completed.",
+    date: "08/11/2023"
+  },
+  {
+    id: 5,
+    title: "UI Design",
+    desc: "UI design completed.",
+    date: "18/10/2023"
+  },
+];
+
 export const mockDataLeaveRequests = [
   {
     id: 1,
@@ -411,21 +444,21 @@ export const mockPieData = [
   {
     id: "Absent",
     label: "Absent",
-    value: 3,
+    value: 1,
     // color: ""
   },
 
   {
     id: "On Leave",
     label: "On Leave",
-    value: 7,
+    value: 1,
     // color: ""
   },
 
   {
     id: "Present",
     label: "Present",
-    value: 60,
+    value: 18,
     // color: ""
   },
 ];
