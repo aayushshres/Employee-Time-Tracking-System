@@ -1,26 +1,33 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Link,
+  Paper,
+  Box,
+  Grid,
+  Typography,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
 import { ColorModeContext, useMode } from "../../theme";
 import { ThemeProvider } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 
-export default function SignInSide() {
+export default function Login() {
   const navigate = useNavigate();
   const [theme, colorMode] = useMode();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    role: "admin", // Default role, you can change it as needed
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -44,6 +51,9 @@ export default function SignInSide() {
     if (!formData.email) {
       newErrors.email = "Email is required";
       valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+      valid = false;
     } else {
       newErrors.email = "";
     }
@@ -51,6 +61,9 @@ export default function SignInSide() {
     // Validate password
     if (!formData.password) {
       newErrors.password = "Password is required";
+      valid = false;
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters long";
       valid = false;
     } else {
       newErrors.password = "";
@@ -60,7 +73,7 @@ export default function SignInSide() {
     return valid;
   };
 
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
 
     if (validateForm()) {
@@ -68,10 +81,13 @@ export default function SignInSide() {
       console.log({
         email: formData.email,
         password: formData.password,
+        role: formData.role,
       });
+      // Add login logic here
 
-      // Redirect to a different page using React Router
-      navigate("/admin/dashboard");
+      // Redirect to a different page based on the selected role
+      const redirectPath = formData.role === "admin" ? "/admin" : "/employee";
+      navigate(redirectPath);
     } else {
       // Form is not valid, handle accordingly
       console.error("Form submission failed. Please check the errors.");
@@ -123,7 +139,7 @@ export default function SignInSide() {
               <Box
                 component="form"
                 noValidate
-                onSubmit={handleSubmit}
+                onSubmit={handleLogin}
                 sx={{ mt: 1 }}
               >
                 <TextField
@@ -156,6 +172,24 @@ export default function SignInSide() {
                   error={Boolean(formErrors.password)}
                   helperText={formErrors.password}
                 />
+                <FormControl fullWidth sx={{ mt: 2 }}>
+                  <InputLabel id="role-label" color="secondary">
+                    Role
+                  </InputLabel>
+                  <Select
+                    labelId="role-label"
+                    id="role"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleInputChange}
+                    label="Role"
+                    color="secondary"
+                  >
+                    <MenuItem value="admin">Admin</MenuItem>
+                    <MenuItem value="employee">Employee</MenuItem>
+                  </Select>
+                </FormControl>
+
                 <FormControlLabel
                   control={<Checkbox value="remember" color="secondary" />}
                   label="Remember me"

@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
@@ -75,7 +73,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMIN
+                  EMPLOYEE
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -92,7 +90,11 @@ const Sidebar = () => {
                   width="100px"
                   height="100px"
                   src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                  style={{
+                    cursor: "pointer",
+                    borderRadius: "50%",
+                    // fill: "fit",
+                  }}
                 />
               </Box>
               <Box textAlign="center">
@@ -102,10 +104,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Jhon Doe
+                  Jhon Doe {/* Employee Name */}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Manager
+                  Senior Developer {/* Employee Job Title */}
                 </Typography>
               </Box>
             </Box>
@@ -114,23 +116,8 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/admin"
+              to="/employee"
               icon={<HomeOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Data
-            </Typography>
-            <Item
-              title="Manage Employees"
-              to="/admin/employees"
-              icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -142,16 +129,10 @@ const Sidebar = () => {
             >
               Action
             </Typography>
-            <Item
-              title="Add New Employee"
-              to="/admin/form"
-              icon={<PersonOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+
             <Item
               title="Leave Requests"
-              to="/admin/leave"
+              to="/employee/leave"
               icon={<PendingActionsIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -166,14 +147,14 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Projects"
-              to="/admin/projects"
+              to="/employee/projects"
               icon={<StackedBarChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Calendar"
-              to="/admin/calendar"
+              to="/employee/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
