@@ -87,7 +87,7 @@ export default function Login() {
 
       // Redirect to a different page based on the selected role
       const redirectPath = formData.role === "admin" ? "/admin" : "/employee";
-      navigate(redirectPath);
+      navigate(redirectPath, { repalce: true });
     } else {
       // Form is not valid, handle accordingly
       console.error("Form submission failed. Please check the errors.");

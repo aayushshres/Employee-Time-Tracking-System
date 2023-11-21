@@ -17,12 +17,11 @@ const Topbar = () => {
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
 
-  // Logout not configured yet
   const handleLogout = () => {
     // Perform any logout actions here
 
     // Redirect to the login page
-    navigate.push("/login");
+    navigate("/", { replace: true });
   };
 
   return (
