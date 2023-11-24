@@ -9,6 +9,7 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -134,6 +135,14 @@ const Sidebar = () => {
               title="Leave Requests"
               to="/employee/leave"
               icon={<PendingActionsIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Add WorkLog"
+              to="/employee/addworklog"
+              icon={<EditNoteIcon />}
               selected={selected}
               setSelected={setSelected}
             />

@@ -1,5 +1,5 @@
 import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ColorModeContext, tokens } from "../../../theme";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
@@ -16,6 +16,7 @@ const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const [checkStatus, setCheckStatus] = useState(true);
 
   const handleLogout = () => {
     // Perform any logout actions here
@@ -40,24 +41,16 @@ const Topbar = () => {
 
       {/* ICONS */}
       <Box display="flex">
-        <Button
-          sx={{
-            backgroundColor: colors.blueAccent[700],
-            color: colors.grey[100],
-            fontWeight: "bold",
-          }}
-        >
-          Add Work Log
-        </Button>
         <Box sx={{ width: 10 }}></Box>
         <Button
+          onClick={(e) => setCheckStatus(!checkStatus)}
           sx={{
             backgroundColor: colors.blueAccent[700],
             color: colors.grey[100],
             fontWeight: "bold",
           }}
         >
-          Checkin
+          {checkStatus ? "Checkin" : "Checkout"}
         </Button>
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (

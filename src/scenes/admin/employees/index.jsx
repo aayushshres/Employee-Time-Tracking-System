@@ -4,8 +4,10 @@ import { tokens } from "../../../theme";
 import { mockDataContacts } from "../../../data/mockData";
 import Header from "../../../components/Header";
 import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Employees = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -52,6 +54,17 @@ const Employees = () => {
     },
   ];
 
+  // This function will navigate to specific employee. Uncomment while backend integration.
+  // const handleNameClick = (params) => {
+  //   // Redirect to the user page when the name is clicked
+  //   navigate(`/admin/employee/${params.row.name}`);
+  // };
+
+  // Delete this function and use above function for backend integration.
+  const handleNameClick = () => {
+    navigate("/admin/employeedetails");
+  };
+
   return (
     <Box m="20px">
       <Header title="EMPLOYEE DETAILS" />
@@ -91,6 +104,11 @@ const Employees = () => {
           rows={mockDataContacts}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
+          onCellClick={(params) => {
+            if (params.field === "name") {
+              handleNameClick(params);
+            }
+          }}
         />
       </Box>
     </Box>

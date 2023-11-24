@@ -8,6 +8,7 @@ import { ColorModeContext, useMode } from "../../theme";
 import Calendar from "./calendar/calendar";
 import Projects from "./projects";
 import EmployeeLeaveRequests from "./leave_requests";
+import AddWorkLog from "./worklog/addWorklog";
 
 function EmployeePage() {
   const [theme, colorMode] = useMode();
@@ -25,6 +26,7 @@ function EmployeePage() {
               <Route path="" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/leave" element={<EmployeeLeaveRequests />} />
+              <Route path="/addworklog" element={<AddWorkLog />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/calendar" element={<Calendar />} />
             </Routes>

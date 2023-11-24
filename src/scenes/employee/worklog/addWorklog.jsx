@@ -7,7 +7,7 @@ import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../../components/Header";
 
-const EmployeeLeaveRequests = () => {
+const AddWorkLog = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -16,7 +16,7 @@ const EmployeeLeaveRequests = () => {
 
   return (
     <Box m="20px">
-      <Header title="LEAVE REQUEST" />
+      <Header title="ADD WORKLOG" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -44,52 +44,26 @@ const EmployeeLeaveRequests = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Title"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
+                value={values.title}
+                name="title"
+                error={!!touched.title && !!errors.title}
+                helperText={touched.title && errors.title}
+                sx={{ gridColumn: "span 1" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Working Hours"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Contact Number"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
+                value={values.workingHours}
+                name="workingHours"
+                error={!!touched.workingHours && !!errors.workingHours}
+                helperText={touched.workingHours && errors.workingHours}
                 sx={{ gridColumn: "span 1" }}
               />
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -99,13 +73,13 @@ const EmployeeLeaveRequests = () => {
                 multiline
                 rows={10}
                 variant="filled"
-                label="Reason"
+                label="Log"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.reason}
-                name="reason"
-                error={!!touched.reason && !!errors.reason}
-                helperText={touched.reason && errors.reason}
+                value={values.log}
+                name="log"
+                error={!!touched.log && !!errors.log}
+                helperText={touched.log && errors.log}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
@@ -121,24 +95,15 @@ const EmployeeLeaveRequests = () => {
   );
 };
 
-const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
 const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  reason: yup.string().required("required"),
+  title: yup.string().required("required"),
+  workingHours: yup.string().required("required"),
+  log: yup.string().required("required"),
 });
 const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  reason: "",
+  title: "",
+  workingHours: "",
+  log: "",
 };
 
-export default EmployeeLeaveRequests;
+export default AddWorkLog;

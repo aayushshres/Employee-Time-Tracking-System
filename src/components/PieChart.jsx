@@ -53,7 +53,7 @@ const PieChart = () => {
       enableArcLabels={false}
       arcLabelsRadiusOffset={0.4}
       arcLabelsSkipAngle={7}
-      colors={{scheme: "set1"}}
+      colors={{ scheme: "set1" }}
       arcLabelsTextColor={{
         from: "color",
         modifiers: [["darker", 2]],

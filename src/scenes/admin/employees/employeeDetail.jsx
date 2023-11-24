@@ -1,16 +1,17 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import PieChart from "../../../components/PieChart";
+import StatBox from "../../../components/StatBox";
+import Header from "../../../components/Header";
+import EditIcon from "@mui/icons-material/Edit";
 import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
-import Header from "../../../components/Header";
-import StatBox from "../../../components/StatBox";
-import PieChart from "../../../components/PieChart";
-import ViewWorkLog from "../worklog/viewWorklog";
+import ViewWorkLog from "../../employee/worklog/viewWorklog";
 
-const Dashboard = () => {
+// Make this page dynamic during backend integration.
+const EmployeeDetail = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -18,7 +19,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to Ethnus Dashboard" />
+        <Header title="Jon Snow" subtitle="Employee Details" />
 
         <Box>
           <Button
@@ -30,8 +31,8 @@ const Dashboard = () => {
               padding: "10px 20px",
             }}
           >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            <EditIcon sx={{ mr: "10px" }} />
+            Update
           </Button>
         </Box>
       </Box>
@@ -186,4 +187,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default EmployeeDetail;

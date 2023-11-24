@@ -4,7 +4,7 @@ import { tokens } from "../../../theme";
 import { mockDataWorkLog } from "../../../data/mockData";
 import { useTheme } from "@mui/material";
 
-const WorkLog = () => {
+const ViewWorkLog = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -65,4 +65,4 @@ const WorkLog = () => {
   );
 };
 
-export default WorkLog;
+export default ViewWorkLog;
