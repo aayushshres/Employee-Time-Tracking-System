@@ -9,12 +9,18 @@ import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
 import ViewWorkLog from "../../employee/worklog/viewWorklog";
+import { useNavigate } from "react-router-dom";
 
-// Make this page dynamic during backend integration.
 const EmployeeDetail = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
 
+  const handleUpdateButtonClick = () => {
+    // Handle the button click and navigate to the desired page
+    // Replace "/path-to-update-page" with the actual path of your update page
+    navigate("/admin/employeedetails/update");
+  };
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -23,6 +29,7 @@ const EmployeeDetail = () => {
 
         <Box>
           <Button
+            onClick={handleUpdateButtonClick}
             sx={{
               backgroundColor: colors.blueAccent[700],
               color: colors.grey[100],

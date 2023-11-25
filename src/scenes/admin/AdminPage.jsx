@@ -12,6 +12,7 @@ import Calendar from "./calendar/calendar";
 import Projects from "./projects";
 import LeaveRequests from "./leave";
 import EmployeeDetail from "./employees/employeeDetail";
+import UpdateEmployeeDetails from "./employees/updateEmployeeDetails";
 
 function AdminPage() {
   const [theme, colorMode] = useMode();
@@ -29,6 +30,10 @@ function AdminPage() {
               <Route path="" element={<Dashboard />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/employeedetails" element={<EmployeeDetail />} />
+              <Route
+                path="/employeedetails/update"
+                element={<UpdateEmployeeDetails />}
+              />
               <Route path="/form" element={<Form />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/leave" element={<LeaveRequests />} />
